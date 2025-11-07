@@ -34,7 +34,7 @@ app.get('/api/products', (req, res) => {
 });
 
 
-// === API 2: (FINAL UPDATE: IMAGE KO RECEIVE KIYA GAYA) ===
+// === API 2: 
 app.post('/api/cart', async (req, res) => {
     try {
         // 1. Image ko body se receive kiya
@@ -43,17 +43,15 @@ app.post('/api/cart', async (req, res) => {
         let item = await CartItem.findOne({ productId: productId });
 
         if (item) {
-            // Agar item pehle se hai, toh sirf quantity badhao
             item.quantity++;
             await item.save();
             res.status(200).json(item);
         } else {
-            // Agar naya hai, toh saari properties (image ke saath) save karo
             const newItem = new CartItem({
                 productId,
                 name,
                 price,
-                image, // Image ko yahaan add kiya
+                image, 
                 quantity: 1 
             });
             await newItem.save();
