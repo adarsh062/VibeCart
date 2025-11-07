@@ -13,12 +13,10 @@ const CartItemSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    // === YEH NAYA ADD KIYA HAI ===
     image: {
         type: String,
-        required: false // Hum ise zaroori nahi banayenge
+        required: false
     },
-    // ============================
     quantity: {
         type: Number,
         required: true,
